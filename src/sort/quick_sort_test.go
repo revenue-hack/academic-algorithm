@@ -1,15 +1,15 @@
-package main
+package sort_test
 
 import (
-	"fmt"
 	"math/rand"
+	"testing"
 	"time"
 
 	"github.com/revenue-hack/academic-algorithm/src/sort"
 )
 
 const (
-	COUNT = 100
+	COUNT = 1000
 	MAX   = 1000
 )
 
@@ -27,14 +27,15 @@ func init() {
 	numbers = nums
 }
 
-func main() {
+func TestQuick(t *testing.T) {
+	result := sort.QuickSort(numbers)
 
-	/*
-		bNums := numbers
-
-		fmt.Printf("bubble answers: %v\n", sort.BubbleSort(COUNT, bNums))
-	*/
-
-	qNums := numbers
-	fmt.Printf("quick answers: %v\n", sort.QuickSort(qNums))
+	for i, r := range result {
+		if i == len(result)-1 {
+			break
+		}
+		if r > result[i+1] {
+			t.Errorf("result: %v", result)
+		}
+	}
 }
