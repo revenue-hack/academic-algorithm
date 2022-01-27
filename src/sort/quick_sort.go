@@ -4,16 +4,15 @@ func QuickSort(numbers []int) []int {
 	return quick(numbers)
 }
 
-func quick(array []int) []int {
-	numbers := array
-
+func quick(numbers []int) []int {
 	if l := len(numbers); l < 2 {
 		return numbers
 	}
 	base := numbers[0]
+	l := len(numbers)
 
-	g1 := make([]int, 0, len(numbers))
-	g2 := make([]int, 0, len(numbers))
+	g1 := make([]int, 0, l)
+	g2 := make([]int, 0, l)
 
 	for _, num := range numbers[1:] {
 		if base > num {
